@@ -7,18 +7,28 @@ package com.mycompany.holamundo3;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 
 /**
  *
  * @author Mairon
  */
 public class ConexionDB{
-    private static final String URL = "jdbc:sqlserver://localhost:1433;" 
-                 + "databaseName=AvanzadaII;"
-                 + "encrypt=true;" 
-                 + "trustServerCertificate=true;";
-    private static final String USER = "sa";
-    private static final String PASSWORD = "213061";
+    private static final Properties CONFIG = new Properties();
+
+static {
+    try (FileInputStream in = new FileInputStream("config.properties")) {
+        CONFIG.load(in);
+    } catch (IOException e) {
+        throw new RuntimeException("No se encontró config.properties en la carpeta del proyecto", e);
+    }
+}
+
+private static final String URL = CONFIG.getProperty("db.url");
+private static final String USER = CONFIG.getProperty("db.user");
+private static final String PASSWORD = CONFIG.getProperty("db.password");
 
     private static Connection conexion = null;
     private ConexionDB(){}
