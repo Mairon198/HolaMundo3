@@ -1,7 +1,7 @@
 //Mairon Omar Licona Duarte
 //201810010200
 
-//Esto solo es para pruebas de que si estamos haciendo bien el commit.
+//Esto solo es para pruebas de que si estamos haciendo bien el commit y el push
 
 package com.mycompany.holamundo3;
 
