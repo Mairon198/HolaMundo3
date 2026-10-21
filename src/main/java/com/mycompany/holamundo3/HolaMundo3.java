@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Mairon
+ * @author Mairon//
  */
 public class HolaMundo3 {
     
